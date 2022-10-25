@@ -5,30 +5,32 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- *
+/**                                                                //panaikinau nereikalingą eilutę
  * @author 56130
  */
-public class user {
+ 
+//USER CLASS DEFINITION
+public class User {                                                //pagal JAVA naming convention klasės pavadinimas turi prasidėti didžiąja raide
 
-    private  int​ id​ ;
-    private​ String firstName​;
-     private​ String lastName​;
-     private​ int age;
+    private int id;                                                //neaiškūs simboliai nukopijuoti; neturi būti tarpo tarp id ir kabliataškio, dvigubo tarpo tarp private ir tipo
+    private String firstName;                                      //neaiškūs simboliai nukopijuoti
+    private String lastName;                                       //neaiškūs simboliai nukopijuoti; kintamieji turi būti sulygiuoti
+    private byte age;                                              //neaiškūs simboliai nukopijuoti; kintamieji turi būti sulygiuoti; siūlyčiau naudoti mažesnio atminties dydžio kintamąjį
     private String profession;
-    private ArrayList<User> children;
+    private ArrayList<User> children;                              //yra įprasta naudoti ArrayList<User> children = new ArrayList<>();
 
+    //CONSTRUCTOR
     public User(int id, String firstName, String lastName, int age) {
 
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.profession = profession;
+        this.profession = profession;                               //nenaudojama, nereikalinga eilutė, ją reikia sutaisyti (pridėti definition į construktorių)
 
     }
-
-    public String getChildName(User child) {
+    //METHOD TO GET FULL CHILD NAME
+    public String getFullChildName(User child) {                        //dėl tikslumo ir mažiau dviprasmybės siūlau keisti metodo pavadinimą
         if (!this.children.contains(child)) {
             new Exception("Invalid argument!");
         } else {
@@ -43,7 +45,7 @@ public class user {
                 name.concat(child.getLastName());
             }
         }
-        return this.getChildName(child);
+        return this.getFullChildName(child);
     }
 
     public String getFirstName() {
